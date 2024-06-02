@@ -1,0 +1,78 @@
+table {
+  font-family: "Montserrat", sans-serif;
+  border-collapse: separate;
+  margin: 20px 0;
+  border-spacing: 10px;
+  padding: 30px;
+  background-color: var(--white);
+  color: var(--primary);
+}
+td, .answer td {
+  border: 1px solid #000;
+  min-width: 40px;
+  width: 40px;
+  max-width: 40px;
+  min-height: 40px;
+  height: 40px;
+  max-width: 40px;
+  text-align: center;
+  font-size: 30px;
+  border-radius: 5px;
+}
+.answer td {
+  background-color: #f0f0f0;
+}
+
+#wordList {
+  display: flex;
+  font-size: 2.2rem;
+}
+#wordList li {
+  list-style-type: none;
+  margin-right: 20px;
+}
+
+#words {
+  min-width: 300px;
+  font-size: 1.4rem;
+}
+
+#size {
+  min-width: 300px;
+  height: 40px;
+  font-size: 2.2rem;
+}
+
+#buttonGeratorCrossWords, #buttonResetCrossWords {
+  margin-top: 10px;
+  padding: 5px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: filter 0.3s ease; 
+}
+
+#buttonGeratorCrossWords:hover, #buttonResetCrossWords:hover {
+  cursor: pointer;
+  filter: drop-shadow(5px 5px 10px rgba(36, 36, 36, 0.5)); 
+}
+
+#wordSearchContainer {
+  display: flex;
+  flex-flow: column;
+  max-width: min-content;
+  margin: 0 auto;
+}
+
+#wordListContainer {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  text-align: left;
+  font-size: 1.4rem;
+}
+
+#wordListContainer li {
+  list-style: none;
+}
+

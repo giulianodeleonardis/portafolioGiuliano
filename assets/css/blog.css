@@ -48,6 +48,25 @@
   border-color: rgba(0,0,0,0.75) transparent transparent transparent;
 }
 
+ol {
+  padding: 0 3rem;
+}
+
+ul {
+  list-style: none;
+}
+
+/*-------------------------MEDIA QUERY-------------------------*/
+@media (min-width: 504px) {
+  ol {
+    padding: 0 10rem;
+  }
+}
+
+
+
+
+
 
 
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es" dir="ltr">
 
 <head>
     <meta charset='utf-8'>
@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/header.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/nav.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/portfolio.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/skillset.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/blog.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/experience.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/contact.css" />
     <link rel="stylesheet" href="/assets/css/text.html/style.css">
@@ -45,21 +45,79 @@
         </div>
         <ul>
             <li><a href="/index.html">Home</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#skillset">Skillset</a></li>
-            <li><a href="#experience">Experience</a></li>
+            <li><a href="/#portfolio">Portfolio</a></li>
+            <li><a href="/#skillset">Skillset</a></li>
+            <li><a href="/#experience">Experience</a></li>
             <li><a href="/blog/index.html">Blog</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="/#contact">Contact</a></li>
         </ul>
     </nav>
     <main>
         <section id="blog" class="even">
             <h3>Etiquetas de Texto en HTML</h3>
-            <hr />
+            <hr />                
+            <p>
+                    El texto en HTML es el que se incluye dentro de otros elementos HTML para estructurar y presentar contenido en una página web. 
+            </p>
+            <br>
+            <ol>
+                <li><h2>Elementos de Texto en Bloque:</h2></li>
+                <br>
+                <ul>
+                    <li>&lt;p&gt; Define un párrafo. Se utiliza para agrupar bloques de texto</li>
+                <code>&lt;p&gt;Este es un párrafo de ejemplo.&lt;p&gt;</code>
+                <br><br>
+                <hr>
+                <li>&lt;h1&gt, &lt;h2&gt, &lt;h3&gt, &lt;h4&gt, &lt;h5&gt, &lt;h6&gt: Define encabezados, siendo &lt;h1&gt el más importante y &lt;h6&gt el menos importante.</li>
+                <code>
+                    &lt;h1&gtEncabezado de nivel 1&lt;/h1&gt <br>
+                    &lt;h2&gtEncabezado de nivel 2&lt;/h2&gt
+                </code>
+                <br><br>
+                <hr>
+                <li>&lt;div&gt: Define una división o sección genérica en un documento. Se usa para agrupar elementos en bloque.</li>
+                <code>
+                    &lt;div&gt <br>
+                    &lt;p&gtTexto dentro de un div.&lt;/p&gt <br>
+                        &lt;/div&gt
+                </code>
+                <br><br>
+                <hr>
+                </ul>
+                <li><h2>Elementos de Texto en Línea:</h2></li>
+                <br>
+                <ul>
+                    <li>&lt;span&gt: Define una sección en línea dentro de un documento. Se usa para agrupar texto en línea.</li>
+                <code>
+                    &lt;p&gtEste es un &lt;span&gttexto en línea&lt;/span&gt dentro de un párrafo.&lt;p&gt
+                </code>
+                <br><br>
+                <hr>
+                <li>&lt;a&gt: Define un hipervínculo.</li>
+                <code>
+                    &lt;a href="https://www.example.com"&gtVisita Example&lt;/a&gt                    
+                </code>
+                <br><br>
+                <hr> 
+                <li>&lt;strong&gt:  Define texto fuerte, generalmente mostrado en negrita.</li>
+                <code>
+                    &lt;p&gtEste es un texto &lt;strong&gtimportante&lt;/strong&gt.&lt;/p&gt                
+                </code>
+                <br><br>
+                <hr>   
+                <li>&lt;em&gt:  Define texto enfatizado, generalmente mostrado en cursiva.</li>
+                <code>
+                    &lt;p&gtEste es un texto &lt;em&gtenfatizado&lt;/em&gt.&lt;/p&gt                   
+                </code>
+                <br><br>
+                <hr>                                            
+                </ul>
+            </ol>
+            <br>
             <div id="unique_centered_content">
                 <table>
                     <caption>
-                        Etiquetas de Texto en HTML
+                        Etiquetas para texto semántico
                     </caption>
                     <thead>
                         <tr>
@@ -115,7 +173,7 @@
         </section>
     </main>
     <footer>
-        <small>Developed and designed by Giuliano De Leonardis. ©2021. All rights reserved.</small>
+        <small>Developed and designed by Giuliano De Leonardis. ©2024. All rights reserved.</small>
     </footer>
     <script src="/assets/js/main.js"></script>
     <script src="/assets/js/fixed.js"></script>

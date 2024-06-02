@@ -17,10 +17,13 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/header.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/nav.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/portfolio.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/blog.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/experience.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/contact.css" />
-    
+    <link rel="stylesheet" href="/assets/css/wordSearch/style.css">
+    <!--Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -52,62 +55,21 @@
     </nav>
     <main>
         <section id="content" class="even">
-            <h3>Blog</h3>
-            <hr />
-            <div>
-                <div>
-                    <a href="/blog/html_content/text.html"><img src="/assets/img/skillset/html.svg" /></a>
-                    <h5>Texto</h5>
-                </div>
-                <div>
-                    <img src="/assets/img/skillset/html.svg" />
-                    <h5>Listas</h5>                    
-                </div>
-                <div>
-                    <img src="/assets/img/skillset/html.svg" />
-                    <h5>Formatos</h5>                
-                </div>
-                <div>
-                    <img src="/assets/img/skillset/html.svg" />
-                    <h5>Citas</h5>
-                </div>
-                <div>
-                    <img src="/assets/img/skillset/html.svg" />
-                    <h5>Tiempo</h5>
-                </div>
-                <div>
-                    <img src="/assets/img/skillset/html.svg" />
-                    <h5>Vínculos</h5>
-                </div>
-                <div>
-                    <img src="/assets/img/skillset/html.svg" />
-                    <h5>Entity escaping</h5>
-                </div>
-                <div>
-                    <img src="/assets/img/skillset/html.svg" />
-                    <h5>Barra de navegación</h5>
-                </div>
-                <div>
-                    <img src="/assets/img/skillset/html.svg" />
-                    <h5>Imagen</h5>
-                </div>
-                <div>
-                    <img src="/assets/img/skillset/html.svg" />
-                    <h5>Resolución</h5>
-                </div>
-                <div>
-                    <img src="/assets/img/skillset/html.svg" />
-                    <h5>Figura</h5>
-                </div>
-                <div>
-                    <img src="/assets/img/skillset/html.svg" />
-                    <h5>Foto</h5>
-                </div>
-                <div>
-                    <img src="/assets/img/skillset/html.svg" />
-                    <h5>Audio</h5>
-                </div>
-            </div>
+            <h1>Sopa de Letras con Respuestas</h1>
+            <label for="size">Tamaño de la tabla:</label>
+            <br>
+            <input type="number" id="size" min="5" max="20">
+            <br><br>
+            <label for="words">Palabras (separadas por comas):</label>
+            <br>
+            <textarea type="number" id="words" rows="10" cols="5"></textarea>
+            <br><br>
+            <button id="buttonGeratorCrossWords" onclick="generateWordSearch()">Generar Sopa de Letras</button>
+            <br>
+            <button id="buttonResetCrossWords" onclick="resetWordSearch()">Reiniciar</button>
+            <br><br>
+            <div id="wordSearchContainer"></div>
+            <div id="wordListContainer"></div>
         </section>
     </main>
     <footer>
@@ -115,6 +77,7 @@
     </footer>
     <script src="/assets/js/main.js"></script>
     <script src="/assets/js/fixed.js"></script>
+    <script src="/assets/js/wordSearch.js"></script>
 </body>
 
 </html>
