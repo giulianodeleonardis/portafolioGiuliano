@@ -1,6 +1,19 @@
 function generateWordSearch() {
     const size = parseInt(document.getElementById('size').value);
-    const words = document.getElementById('words').value.split(',').map(word => word.trim().toUpperCase());
+    const words = document.getElementById('words').value.split(' ').map(word => word.trim().toUpperCase());
+
+    // Filtering words equal or greater to 3
+    const wordsFiltered = words.filter(word => {
+        // Remove special characters and numbers
+        const cleanWord = word.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑüÜ]/g, '');
+        // Check is the celan word have a length equal or greater to 3
+        return cleanWord.length > 3;
+    }).map(word => {
+        // Remove special characters and numbers to the words that passed the first filter
+        return word.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑüÜ]/g, '');
+    });
+    const wordsUnique = new Set(wordsFiltered);    
+    const arrayWordsUnique = Array.from(wordsUnique);
 
     if (isNaN(size) || size < 5 || size > 20) {
         alert("El tamaño de la tabla debe estar entre 5 y 20.");
@@ -9,14 +22,14 @@ function generateWordSearch() {
 
     const table = createEmptyTable(size);
     const answerTable = createEmptyTable(size);
-    if (!placeWordsInTable(table, answerTable, words, size)) {
+    if (!placeWordsInTable(table, answerTable, arrayWordsUnique, size)) {
         alert("No se pudieron colocar todas las palabras en la tabla. Intente con un tamaño mayor o menos palabras.");
         return;
     }
     fillEmptySpaces(table, size);
     displayTable(table, size, 'wordSearchContainer');
     displayTable(answerTable, size, 'wordSearchContainer', true);
-    displayWordList(words);
+    displayWordList(arrayWordsUnique);
 }
 
 function createEmptyTable(size) {
@@ -27,7 +40,7 @@ function createEmptyTable(size) {
     return table;
 }
 
-function placeWordsInTable(table, answerTable, words, size) {
+function placeWordsInTable(table, answerTable, arrayWordsUnique, size) {
     const directions = [
         { x: 1, y: 0 }, { x: -1, y: 0 }, // Horizontal
         { x: 0, y: 1 }, { x: 0, y: -1 }, // Vertical
@@ -35,7 +48,7 @@ function placeWordsInTable(table, answerTable, words, size) {
         { x: 1, y: -1 }, { x: -1, y: 1 }  // Diagonal (up-right and down-left)
     ];
 
-    for (let word of words) {
+    for (let word of arrayWordsUnique) {
         let placed = false;
         for (let attempts = 0; attempts < 100 && !placed; attempts++) {
             const direction = directions[Math.floor(Math.random() * directions.length)];
@@ -124,7 +137,7 @@ function displayWordList(words) {
 function resetWordSearch() {
     const wordListContainer = document.getElementById('wordListContainer');
     const inputOfSizeCrossWord = document.getElementById('size');
-    const words = document.getElementById('words');    
+    const words = document.getElementById('words');
     const wordSearchContainer = document.getElementById('wordSearchContainer');
     wordListContainer.innerHTML = '';
     inputOfSizeCrossWord.value = '';
