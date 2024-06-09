@@ -1,5 +1,6 @@
-function generateWordSearch() {
-    const size = parseInt(document.getElementById('size').value);
+let arrayOfWordsSelected = [];
+
+function buttonGeratorWords() {
     const words = document.getElementById('words').value.split(' ').map(word => word.trim().toUpperCase());
 
     // Filtering words equal or greater to 3
@@ -12,7 +13,39 @@ function generateWordSearch() {
         // Remove special characters and numbers to the words that passed the first filter
         return word.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑüÜ]/g, '');
     });
-    const wordsUnique = new Set(wordsFiltered);    
+    const wordsUnique = new Set(wordsFiltered);
+    const arrayWordsUnique = Array.from(wordsUnique);
+
+    displayWordListToSelect(arrayWordsUnique, 'wordListToSelect');
+}
+
+function generateWordSearch() {
+    let listWordsCheckbox = document.querySelectorAll(".word-list-item__label");
+    let partOfNameId = 'check';
+    let eachIdOfCheckBox;
+    arrayOfWordsSelected = [];
+    for (let i = 0; i < listWordsCheckbox.length; i++) {
+        let idNumber = i;
+        eachIdOfCheckBox = '';
+        eachIdOfCheckBox = document.getElementById(partOfNameId + idNumber);
+        if (eachIdOfCheckBox.checked) {
+            arrayOfWordsSelected.push(listWordsCheckbox[i].innerText);
+        }        
+    }
+    const size = parseInt(document.getElementById('size').value);
+    const words = arrayOfWordsSelected.map(word => word.trim().toUpperCase());
+
+    // Filtering words equal or greater to 3
+    const wordsFiltered = words.filter(word => {
+        // Remove special characters and numbers
+        const cleanWord = word.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑüÜ]/g, '');
+        // Check is the celan word have a length equal or greater to 3
+        return cleanWord.length > 3;
+    }).map(word => {
+        // Remove special characters and numbers to the words that passed the first filter
+        return word.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑüÜ]/g, '');
+    });
+    const wordsUnique = new Set(wordsFiltered);
     const arrayWordsUnique = Array.from(wordsUnique);
 
     if (isNaN(size) || size < 5 || size > 20) {
@@ -29,7 +62,8 @@ function generateWordSearch() {
     fillEmptySpaces(table, size);
     displayTable(table, size, 'wordSearchContainer');
     displayTable(answerTable, size, 'wordSearchContainer', true);
-    displayWordList(arrayWordsUnique);
+    //displayWordListToSelect(arrayWordsUnique, 'wordListToSelect');
+    //displayWordList(arrayWordsUnique, 'wordListContainer');
 }
 
 function createEmptyTable(size) {
@@ -110,9 +144,53 @@ function displayTable(table, size, containerId, isAnswer = false) {
     container.appendChild(tableElem);
 }
 
-function displayWordList(words) {
-    const wordListContainer = document.getElementById('wordListContainer');
-    wordListContainer.innerHTML = '';
+function displayWordListToSelect(words, container) {
+    const wordListContainer = document.getElementById(container);
+    //wordListContainer.innerHTML = '';
+
+    const columns = 3;
+    const columnSize = Math.ceil(words.length / columns);
+    const qtyOfWords = words.length;
+    for (let i = 0; i < columns; i++) {
+        const divItem = document.createElement('div');
+        divItem.classList.add('word-list-item');
+        for (let j = 0; j < columnSize; j++) {
+            const wordIndex = i * columnSize + j;
+            if (wordIndex < qtyOfWords) {
+                let nameForEachCheck = "check" + (wordIndex); 
+                let idForLabel = "label-check" + (wordIndex); 
+                const labelTag = document.createElement("label");
+                labelTag.setAttribute("for", nameForEachCheck);
+                labelTag.setAttribute("class", "word-list-item__label");
+                labelTag.setAttribute("id", idForLabel);
+                let labelText = document.createTextNode(words[wordIndex]);
+                const inputTag = document.createElement('input');
+                inputTag.setAttribute("type", "checkbox");
+                inputTag.setAttribute("name", nameForEachCheck);
+                inputTag.setAttribute("id", nameForEachCheck);
+                inputTag.setAttribute("class", "inputTypeCheck");
+                inputTag.setAttribute("checked", true);
+                labelTag.appendChild(inputTag);
+                labelTag.appendChild(labelText);
+                divItem.appendChild(labelTag);
+                //br HTML tag
+                const brTag = document.createElement("br");
+                divItem.appendChild(brTag);
+                inputTag.addEventListener('change', updateCount);
+            }
+        }
+        wordListContainer.appendChild(divItem);
+    }
+    const qtyOfWordsToSelect = document.getElementById("qtyOfWordsToSelect");
+    const labelTagQtyWords = document.createElement("label");
+    labelTagQtyWords.setAttribute("id", "qtyWordListToSelect");
+    qtyOfWordsToSelect.appendChild(labelTagQtyWords);
+    updateCount();
+}
+
+function displayWordList(words, container) {
+    const wordListContainer = document.getElementById(container);
+    //wordListContainer.innerHTML = '';
 
     const columns = 3;
     const columnSize = Math.ceil(words.length / columns);
@@ -139,8 +217,20 @@ function resetWordSearch() {
     const inputOfSizeCrossWord = document.getElementById('size');
     const words = document.getElementById('words');
     const wordSearchContainer = document.getElementById('wordSearchContainer');
+    const displayQtyOfWords = document.getElementById("qtyOfWordsToSelect");
+    const listOfWords = document.getElementById("wordListToSelect");    
     wordListContainer.innerHTML = '';
     inputOfSizeCrossWord.value = '';
     words.value = '';
+    displayQtyOfWords.innerHTML = '';
+    listOfWords.innerHTML = '';
     wordSearchContainer.innerHTML = '';
+}
+
+
+// Display de quantity of words selected
+function updateCount() {
+    const countDisplay = document.getElementById('qtyWordListToSelect');
+    const checkedCount = document.querySelectorAll('.inputTypeCheck:checked').length;
+    countDisplay.textContent = checkedCount;
 }
