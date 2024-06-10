@@ -1,11 +1,12 @@
 #content > div {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-gap: 1rem;
     margin: 1rem;
 }
 
 #content img {
+  width: 85px;
   border-radius: 1rem;
   max-width: 7rem;
   cursor: pointer;
@@ -61,6 +62,10 @@ ul {
   ol {
     padding: 0 10rem;
   }
+#content > div {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 2rem;
+}  
 }
 
 

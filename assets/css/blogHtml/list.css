@@ -1,0 +1,28 @@
+ul {
+  margin: 0 auto;
+  list-style: disc;
+  width: 50%;
+}
+
+ol {
+  margin: 0 auto;
+  width: 50%;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dl, dd {
+  font-size: 0.9rem;
+}
+
+dd {
+  margin-bottom: 1em;
+}
+
+.even__content hr {
+  padding: 0 20px;
+  width: 70%;
+  margin: 0 auto;
+}

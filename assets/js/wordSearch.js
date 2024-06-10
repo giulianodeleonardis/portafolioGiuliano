@@ -151,6 +151,7 @@ function displayWordListToSelect(words, container) {
     const columns = 3;
     const columnSize = Math.ceil(words.length / columns);
     const qtyOfWords = words.length;
+    const bullet = '◯ ';
     for (let i = 0; i < columns; i++) {
         const divItem = document.createElement('div');
         divItem.classList.add('word-list-item');
@@ -163,7 +164,7 @@ function displayWordListToSelect(words, container) {
                 labelTag.setAttribute("for", nameForEachCheck);
                 labelTag.setAttribute("class", "word-list-item__label");
                 labelTag.setAttribute("id", idForLabel);
-                let labelText = document.createTextNode(words[wordIndex]);
+                let labelText = document.createTextNode(bullet + words[wordIndex]);
                 const inputTag = document.createElement('input');
                 inputTag.setAttribute("type", "checkbox");
                 inputTag.setAttribute("name", nameForEachCheck);
