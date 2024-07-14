@@ -253,11 +253,13 @@ function resetWordSearch() {
     const wordSearchContainer = document.getElementById('wordSearchContainer');
     const displayQtyOfWords = document.getElementById("qtyOfWordsToSelect");
     const listOfWords = document.getElementById("wordListToSelect");    
+    const listOfWordsSelected = document.getElementById("wordsSelected");   
     wordListContainer.innerHTML = '';
     inputOfSizeCrossWord.value = '';
     words.value = '';
     displayQtyOfWords.innerHTML = '';
     listOfWords.innerHTML = '';
+    listOfWordsSelected.innerHTML = '';
     wordSearchContainer.innerHTML = '';
 }
 
