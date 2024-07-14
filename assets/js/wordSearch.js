@@ -64,6 +64,39 @@ function generateWordSearch() {
     displayTable(answerTable, size, 'wordSearchContainer', true);
     //displayWordListToSelect(arrayWordsUnique, 'wordListToSelect');
     //displayWordList(arrayWordsUnique, 'wordListContainer');
+    
+    //List of words selected
+    const wordsSelectedContainer = document.getElementById("wordsSelected");
+    wordsSelectedContainer.style.width = "40%";
+    wordsSelectedContainer.style.margin = "0 auto"
+    const columns = 3;
+    const columnSize = Math.ceil(words.length / columns);
+    const qtyOfWords = words.length;
+    const h3Element = document.createElement("h3");
+    h3Element.innerText = "Lista de palabras seleccionadas";
+    wordsSelectedContainer.appendChild(h3Element);
+    for (let i = 0; i < columns; i++) {
+        const divItem = document.createElement('div');
+        divItem.classList.add('word-list-item');
+        for (let j = 0; j < columnSize; j++) {
+            const wordIndex = i * columnSize + j;
+            if (wordIndex < qtyOfWords) {
+                let nameForEachCheck = "check" + (wordIndex); 
+                const labelTag = document.createElement("label");
+                labelTag.setAttribute("for", nameForEachCheck);
+                labelTag.setAttribute("class", "word-list-item__label");
+                let labelText = document.createTextNode(words[wordIndex]);
+                const inputTag = document.createElement('input');
+                labelTag.appendChild(labelText);
+                divItem.appendChild(labelTag);
+                //br HTML tag
+                const brTag = document.createElement("br");
+                divItem.appendChild(brTag);
+            }
+        }
+  
+        wordsSelectedContainer.appendChild(divItem);
+    }
 }
 
 function createEmptyTable(size) {

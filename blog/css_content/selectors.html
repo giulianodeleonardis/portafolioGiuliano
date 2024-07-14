@@ -2,27 +2,25 @@
 <html lang="es" dir="ltr">
 
 <head>
-    <title>Giuliano De Leonardis | Sopa de Letras</title>
-    <!--Meta Tags-->
+    <title>Giuliano De Leonardis | HTML: Selectores</title>
+    <!--META TAGs-->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--CSS-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
         integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/fonts.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/utils.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/sections.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/header.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/nav.css" />
-    <link rel="stylesheet" href="/assets/css/wordSearch/style.css">
+    <link rel="stylesheet" href="/assets/css/blogHtml/list.css">
+    <link rel="stylesheet" href="/assets/css/centered_content.css">
     <!--Google Font-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -53,30 +51,30 @@
         </ul>
     </nav>
     <main>
-        <section id="content" class="even">
-            <h1>Sopa de Letras con Respuestas</h1>
-            <label for="size">Tamaño de la tabla:</label>
-            <br>
-            <input type="number" id="size" min="5" max="20">
-            <br><br>
-            <label for="words">Palabras a usar en la sopa de letras. <em>Solo entraran en la sopa de letras palabras únicas y mayores a tres caracteres</em></label>
-            <br>
-            <textarea type="number" id="words" rows="10" cols="5"></textarea>
-            <br><br>
-            <button id="buttonGeratorWords" onclick="buttonGeratorWords()">Generar Lista de Palabras</button>
-            <br>
-            <button id="buttonResetCrossWords" onclick="resetWordSearch()">Reiniciar</button>
-            <br><br>
-            <div id="wordListToSelect"></div>
-            <br><br>
-            <div id="wordsSelected"></div>
-            <br><br>
-            <div id="qtyOfWordsToSelect"></div>
-            <br><br>
-            <button id="buttonGeratorCrossWords" onclick="generateWordSearch()">Generar Sopa de Letras</button>
-            <br>
-            <div id="wordSearchContainer"></div>
-            <div id="wordListContainer"></div>
+        <section id="blog" class="even">
+            <h3>Selectores</h3>
+            <hr />
+            <div class="even__content">
+                <p>Los selectores definen sobre qué elementos se aplicará un conjunto de reglas CSS.</p>
+                <p>Ejemplos de estos selectores son:</p>
+
+                <dl>
+                    <dt>*</dt>
+                    <dd>selecciona todos los elementos</dd>
+
+                    <dt>p[title]</dt>
+                    <dd>selecciona todas las etiquetas p que tienen el atributo title</dd>
+
+                    <dt>p &gt div</dt>
+                    <dd>selecciona la etiqueta div que es hija de un a etiqueta p</dd>
+
+                    <dt>button:hover</dt>
+                    <dd>selecciona el botón cuando el cursor está sobre el botón</dd>
+
+                    <dt>div::after</dt>
+                    <dd>selecciona una etiqueta 'ficticia' que se crea después de elemento div</dd>
+                </dl>
+            </div>
         </section>
     </main>
     <footer>
@@ -84,7 +82,6 @@
     </footer>
     <script src="/assets/js/main.js"></script>
     <script src="/assets/js/fixed.js"></script>
-    <script src="/assets/js/wordSearch.js"></script>
 </body>
 
 </html>
