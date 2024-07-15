@@ -2,16 +2,16 @@ let arrayOfWordsSelected = [];
 
 function buttonGeratorWords() {
     const words = document.getElementById('words').value.split(' ').map(word => word.trim().toUpperCase());
-
     // Filtering words equal or greater to 3
     const wordsFiltered = words.filter(word => {
         // Remove special characters and numbers
-        const cleanWord = word.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑüÜ]/g, '');
+        const cleanWord_1 = word.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑüÜ]/g, '');
         // Check is the celan word have a length equal or greater to 3
-        return cleanWord.length > 3;
+        return cleanWord_1.length > 3;
     }).map(word => {
         // Remove special characters and numbers to the words that passed the first filter
-        return word.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑüÜ]/g, '');
+        let cleanWord_2 = word.normalize("NFD").replace(/[\u0301]/g, "");
+        return cleanWord_2.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑüÜ]/g, '');
     });
     const wordsUnique = new Set(wordsFiltered);
     const arrayWordsUnique = Array.from(wordsUnique);
