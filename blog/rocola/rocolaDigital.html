@@ -15,7 +15,7 @@
         <h2>Lista de canciones</h2>
         <h3>Pulsa el botón para que la rocala escoja una canción al azar</h3>     
         <div id="iframeYoutube">
-            <iframe src="https://www.youtube.com/embed/RlPNh_PBZb4?si=i07MByw3KibkO2G1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe id="iframe" src="https://www.youtube.com/embed/RlPNh_PBZb4?si=i07MByw3KibkO2G1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>           
         <button type="button" onclick="playSong()">Canción</button>
     </div>
@@ -58,26 +58,86 @@
     <script>
         const songs = {
             "canciones": [
-                { "titulo": "Vampire", "artista": "Olivia Rodrigo" },
-                { "titulo": "Quédate", "artista": "Quevedo & Bizarrap" },
-                { "titulo": "Flowers", "artista": "Miley Cyrus" },
-                { "titulo": "Ella Baila Sola", "artista": "Eslabon Armado & Peso Pluma" },
-                { "titulo": "Seven", "artista": "Jung Kook (feat. Latto)" },
-                { "titulo": "Monaco", "artista": "Bad Bunny" },
-                { "titulo": "Padam Padam", "artista": "Kylie Minogue" },
-                { "titulo": "Callaíta", "artista": "Bad Bunny & Tainy" },
-                { "titulo": "La Bebé (Remix)", "artista": "Yng Lvcas & Peso Pluma" },
-                { "titulo": "Ojitos Lindos", "artista": "Bad Bunny & Bomba Estéreo" },
-                { "titulo": "Kill Bill", "artista": "SZA" },
-                { "titulo": "Amargura", "artista": "Karol G" },
-                { "titulo": "Copa Vacía", "artista": "Shakira & Manuel Turizo" },
-                { "titulo": "Dueño de Tu Amor", "artista": "Jhayco" },
-                { "titulo": "Tal Vez", "artista": "Rauw Alejandro" },
-                { "titulo": "Mi Ex Tenía Razón", "artista": "Karol G" },
-                { "titulo": "ADMV", "artista": "Maluma" },
-                { "titulo": "Te Felicito", "artista": "Shakira & Rauw Alejandro" },
-                { "titulo": "Dientes", "artista": "J Balvin, Usher & DJ Khaled" },
-                { "titulo": "TQG", "artista": "Karol G & Shakira" }
+                {   "titulo": "Vampire", 
+                    "artista": "Olivia Rodrigo",
+                    "url": "https://www.youtube.com/embed/RlPNh_PBZb4?si=i07MByw3KibkO2G1" 
+                },
+                {   "titulo": "Quédate", 
+                    "artista": "Quevedo & Bizarrap",
+                    "url": "https://www.youtube.com/embed/_PdogVJx9Iw?si=IA9oPSvjiwNQmEJY" 
+                },
+                {   "titulo": "Flowers", 
+                    "artista": "Miley Cyrus",
+                    "url": "https://www.youtube.com/embed/G7KNmW9a75Y?si=fuupRp6Y1S8-Ahkc" 
+                },
+                {   "titulo": "Ella Baila Sola", 
+                    "artista": "Eslabon Armado & Peso Pluma",
+                    "url": "https://www.youtube.com/embed/lZiaYpD9ZrI?si=LJ4-rbq1eeMmnqjL" 
+                },
+                {   "titulo": "Seven", 
+                    "artista": "Jung Kook (feat. Latto)",
+                    "url": "https://www.youtube.com/embed/QU9c0053UAU?si=feTW_3RUDmUe5Gh3" 
+                },
+                {   "titulo": "Monaco", 
+                    "artista": "Bad Bunny",
+                    "url": "https://www.youtube.com/embed/_PJvpq8uOZM?si=hPxqB5j786YwZ9AI" 
+                },
+                {   "titulo": "Padam Padam", 
+                    "artista": "Kylie Minogue",
+                    "url": "https://www.youtube.com/embed/p6Cnazi_Fi0?si=7zQMx_ngJPCTUpix" 
+                },
+                {   "titulo": "Callaíta", 
+                    "artista": "Bad Bunny & Tainy",
+                    "url": "https://www.youtube.com/embed/acEOASYioGY?si=5DryOf8R3A4MX1Kv" 
+                },
+                {   "titulo": "La Bebé (Remix)", 
+                    "artista": "Yng Lvcas & Peso Pluma",
+                    "url": "https://www.youtube.com/embed/3mchJ-EW9rM?si=vc-DoPOR1An6Gz0v" 
+                },
+                {   "titulo": "Ojitos Lindos", 
+                    "artista": "Bad Bunny & Bomba Estéreo",
+                    "url": "https://www.youtube.com/embed/10EX-_h4pYc?si=TDEA14baf4pkyWLU" 
+                },
+                {   "titulo": "Kill Bill", 
+                    "artista": "SZA",
+                    "url": "https://www.youtube.com/embed/SQnc1QibapQ?si=N7QvJHura3GIRZ9C" 
+                },
+                {   "titulo": "Amargura", 
+                    "artista": "Karol G",
+                    "url": "https://www.youtube.com/embed/fEWhm_TVvUw?si=MVnxfhcXzIvW7HQz" 
+                },
+                {   "titulo": "Copa Vacía", 
+                    "artista": "Shakira & Manuel Turizo",
+                    "url": "https://www.youtube.com/embed/oCxtsTU4BWg?si=Dc8Gu5aAslvR3yJj" 
+                },
+                {   "titulo": "Dueño de Tu Amor", 
+                    "artista": "Jhayco",
+                    "url": "https://www.youtube.com/embed/QdeoocyUk68?si=03v1HR0hESznwEK1" 
+                },
+                {   "titulo": "Tal Vez", 
+                    "artista": "Rauw Alejandro",
+                    "url": "https://www.youtube.com/embed/1Pl075mi1rA?si=jfbh_U0PeXHc1Inm" 
+                },
+                {   "titulo": "Mi Ex Tenía Razón", 
+                    "artista": "Karol G",
+                    "url": "https://www.youtube.com/embed/VBcs8DZxBGc?si=RBpAVQxQDppxLuCX" 
+                },
+                {   "titulo": "ADMV", 
+                    "artista": "Maluma",
+                    "url": "https://www.youtube.com/embed/lNBSdFw0t_w?si=zzWT3AcLIwYVeyXY" 
+                },
+                {   "titulo": "Te Felicito", 
+                    "artista": "Shakira & Rauw Alejandro",
+                    "url": "https://www.youtube.com/embed/4I25nV9hXGA?si=wZKuUXrLOCn9A2il" 
+                },
+                {   "titulo": "Dientes", 
+                    "artista": "J Balvin, Usher & DJ Khaled",
+                    "url": "https://www.youtube.com/embed/gVPgwoXm5Rc?si=emDFpNz2GKyV5yRZ" 
+                },
+                {   "titulo": "TQG", 
+                    "artista": "Karol G & Shakira",
+                    "url": "https://www.youtube.com/embed/jZGpkLElSu8?si=EgRhH8gn-aXMb3Xw"
+                 }
             ]
         }
 
@@ -153,13 +213,14 @@
                     let lastSongElem = document.getElementById(idOfLastSong);
                     lastSongElem.style.backgroundColor = "#ffefd5";
                     lastSongElem.style.borderColor = "#c3c6ce";
-                    lastSongElem.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2)";                    
+                    lastSongElem.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2)";                              
                 }
-
                 let idOfPresentSong = itemOfArrayFlag + 1;
                 let elemOfTheSong = document.getElementById(idOfPresentSong);
                 elemOfTheSong.style.borderColor = "#008bf8";
                 elemOfTheSong.style.boxShadow = "0 4px 18px 0 rgba(0, 0, 0, 0.25)";
+                let iframe = document.getElementById("iframe");
+                iframe.src = songs.canciones[idOfPresentSong].url;      
             }
         }
 
