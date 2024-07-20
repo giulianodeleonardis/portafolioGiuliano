@@ -13,9 +13,14 @@
 
         #header {
             position: sticky;
-    top: 0;
-    z-index: 1;
-    background-color: #32334c;
+            top: 0;
+            z-index: 1;
+            background-color: #32334c;
+        }
+
+        #header > p {
+            margin-top: 10px;
+            color: #fff;
         }
 
         h1,
@@ -24,10 +29,13 @@
             text-align: center;
             margin: 0;
         }
+
         h1 {
             color: #eb8410;
         }
-        h2, h3 {
+
+        h2,
+        h3 {
             color: #fff;
         }
 
@@ -46,7 +54,7 @@
             color: #fff;
             cursor: pointer;
             display: inline-block;
-            font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+            font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
             font-size: 14px;
             font-weight: 600;
             line-height: 20px;
@@ -60,9 +68,11 @@
             vertical-align: middle;
             white-space: nowrap;
             margin: 15px 0;
-            
         }
-        
+
+        #songs {
+            padding: 15px;
+        }
 
         #songsList {
             display: grid;
@@ -82,7 +92,7 @@
             text-align: center;
             width: 80%;
             background-color: #ffefd5;
-            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         }
 
         /* The Modal (background) */
