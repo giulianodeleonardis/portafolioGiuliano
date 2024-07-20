@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocola Digital</title>
+    <link rel="stylesheet" href="/assets/css/rocola/styles.css">
+</head>
+
+<body>
+    <div id="header">
+        <h1>Rocola Digital</h1>
+        <hr>
+        <h2>Lista de canciones</h2>
+        <h3>Pulsa el botón para que la rocala escoja una canción al azar</h3>     
+        <div id="iframeYoutube">
+            <iframe src="https://www.youtube.com/embed/RlPNh_PBZb4?si=i07MByw3KibkO2G1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>           
+        <button type="button" onclick="playSong()">Canción</button>
+    </div>
+
+    <div id="songs">
+        <ol id="songsList">
+            <li class="song-itemList" id="1">"Vampire" <hr> Olivia Rodrigo</li>
+            <li class="song-itemList" id="2">"Quédate" <hr> Quevedo & Bizarrap</li>
+            <li class="song-itemList" id="3">"Flowers" <hr> Miley Cyrus</li>
+            <li class="song-itemList" id="4">"Ella Baila Sola" <hr> Eslabon Armado & Peso Pluma</li>
+            <li class="song-itemList" id="5">"Seven" <hr> Jung Kook (feat. Latto)</li>
+            <li class="song-itemList" id="6">"Monaco" <hr> Bad Bunny</li>
+            <li class="song-itemList" id="7">"Padam Padam" <hr> Kylie Minogue</li>
+            <li class="song-itemList" id="8">"Callaíta" <hr> Bad Bunny & Tainy</li>
+            <li class="song-itemList" id="9">"La Bebé (Remix)" <hr> Yng Lvcas & Peso Pluma</li>
+            <li class="song-itemList" id="10">"Ojitos Lindos" <hr> Bad Bunny & Bomba Estéreo</li>
+            <li class="song-itemList" id="11">"Kill Bill" <hr> SZA</li>
+            <li class="song-itemList" id="">"Amargura" <hr> Karol G"</li>
+            <li class="song-itemList" id="12">"Copa Vacía" <hr> Shakira & Manuel Turizo</li>
+            <li class="song-itemList" id="13">"Dueño de Tu Amor" <hr> Jhayco</li>
+            <li class="song-itemList" id="14">"Tal Vez" <hr> Rauw Alejandro</li>
+            <li class="song-itemList" id="15">"Mi Ex Tenía Razón" <hr> Karol G</li>
+            <li class="song-itemList" id="16">"ADMV" <hr> Maluma</li>
+            <li class="song-itemList" id="17">"Te Felicito" <hr> Shakira & Rauw Alejandro</li>
+            <li class="song-itemList" id="18">"Dientes" <hr> J Balvin, Usher & DJ Khaled</li>
+            <li class="song-itemList" id="19">"TQG" <hr> Karol G & Shakira</li>
+        </ol>
+    </div>
+    <hr>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Intenta otra vez cliceando en el botón 😊</p>
+        </div>
+    </div>
+
+    <script>
+        const songs = {
+            "canciones": [
+                { "titulo": "Vampire", "artista": "Olivia Rodrigo" },
+                { "titulo": "Quédate", "artista": "Quevedo & Bizarrap" },
+                { "titulo": "Flowers", "artista": "Miley Cyrus" },
+                { "titulo": "Ella Baila Sola", "artista": "Eslabon Armado & Peso Pluma" },
+                { "titulo": "Seven", "artista": "Jung Kook (feat. Latto)" },
+                { "titulo": "Monaco", "artista": "Bad Bunny" },
+                { "titulo": "Padam Padam", "artista": "Kylie Minogue" },
+                { "titulo": "Callaíta", "artista": "Bad Bunny & Tainy" },
+                { "titulo": "La Bebé (Remix)", "artista": "Yng Lvcas & Peso Pluma" },
+                { "titulo": "Ojitos Lindos", "artista": "Bad Bunny & Bomba Estéreo" },
+                { "titulo": "Kill Bill", "artista": "SZA" },
+                { "titulo": "Amargura", "artista": "Karol G" },
+                { "titulo": "Copa Vacía", "artista": "Shakira & Manuel Turizo" },
+                { "titulo": "Dueño de Tu Amor", "artista": "Jhayco" },
+                { "titulo": "Tal Vez", "artista": "Rauw Alejandro" },
+                { "titulo": "Mi Ex Tenía Razón", "artista": "Karol G" },
+                { "titulo": "ADMV", "artista": "Maluma" },
+                { "titulo": "Te Felicito", "artista": "Shakira & Rauw Alejandro" },
+                { "titulo": "Dientes", "artista": "J Balvin, Usher & DJ Khaled" },
+                { "titulo": "TQG", "artista": "Karol G & Shakira" }
+            ]
+        }
+
+        let qtySongs = songs.length;
+        let arrayFlag = [];
+        function playSong() {
+            //Reseting the array when achieve for items
+            if (arrayFlag.length === 4) {
+                arrayFlag = [];
+            }
+            //To start the array with the first value
+            let randomNumber = Math.ceil(Math.random() * 10);
+            if (arrayFlag.length === 0) {
+                let songElem = document.getElementsByClassName("song-itemList");
+                for (let i = 0; i < songElem.length; i++) {
+                    songElem[i].style.backgroundColor = "#ffefd5";
+                    songElem[i].style.borderColor = "#c3c6ce";
+                    songElem[i].style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2)";
+                }
+                arrayFlag.push(randomNumber);
+                selectingSongs();
+                return;
+            }
+            //Adding numbers while the array size is <=4
+            else if (arrayFlag.length <= 4) {
+                if (!arrayFlag.includes(randomNumber)) {
+                    arrayFlag.push(randomNumber);
+                    selectingSongs();
+                }
+                else {
+                    // Get the modal
+                    var modal = document.getElementById("myModal");
+
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("close")[0];
+
+                    modal.style.display = "block";
+
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function () {
+                        modal.style.display = "none";
+                    }
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+                }
+            }
+
+            function selectingSongs() {
+                switch (arrayFlag.length) {
+                    case 1:
+                        itemOfArrayFlag = arrayFlag[0];
+                        break;
+                    case 2:
+                        itemOfArrayFlag = arrayFlag[1];
+                        break;
+                    case 3:
+                        itemOfArrayFlag = arrayFlag[2];
+                        break;
+                    case 4:
+                        itemOfArrayFlag = arrayFlag[3];
+                        break;
+                    default:
+                        itemOfArrayFlag = null;
+                }
+                if (arrayFlag.length > 1) {
+                    let lastIndexOfLastSong = arrayFlag.length - 2;
+                    let idOfLastSong = arrayFlag[lastIndexOfLastSong] + 1;
+                    let lastSongElem = document.getElementById(idOfLastSong);
+                    lastSongElem.style.backgroundColor = "#ffefd5";
+                    lastSongElem.style.borderColor = "#c3c6ce";
+                    lastSongElem.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2)";                    
+                }
+
+                let idOfPresentSong = itemOfArrayFlag + 1;
+                let elemOfTheSong = document.getElementById(idOfPresentSong);
+                elemOfTheSong.style.borderColor = "#008bf8";
+                elemOfTheSong.style.boxShadow = "0 4px 18px 0 rgba(0, 0, 0, 0.25)";
+            }
+        }
+
+    </script>
+</body>
+
+</html>
