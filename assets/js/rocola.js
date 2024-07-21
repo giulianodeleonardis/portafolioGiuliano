@@ -123,7 +123,7 @@ const songs = {
     ]
 }
 
-let qtySongs = songs.length;
+let qtySongs = songs.canciones.length;
 let arrayFlag = [];
 function playSong() {
     //Reseting the array when achieve for items
@@ -131,7 +131,8 @@ function playSong() {
         arrayFlag = [];
     }
     //To start the array with the first value
-    let randomNumber = Math.ceil(Math.random() * 10);
+    let randomNumber = Math.ceil(Math.random() * qtySongs);
+    console.log(randomNumber);
     if (arrayFlag.length === 0) {
         let songElem = document.getElementsByClassName("song-itemList");
         for (let i = 0; i < songElem.length; i++) {
@@ -191,13 +192,13 @@ function playSong() {
         }
         if (arrayFlag.length > 1) {
             let lastIndexOfLastSong = arrayFlag.length - 2;
-            let idOfLastSong = arrayFlag[lastIndexOfLastSong] + 1;
+            let idOfLastSong = arrayFlag[lastIndexOfLastSong];
             let lastSongElem = document.getElementById(idOfLastSong);
             lastSongElem.style.backgroundColor = "#ffefd5";
             lastSongElem.style.borderColor = "#c3c6ce";
             lastSongElem.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2)";
         }
-        let idOfPresentSong = itemOfArrayFlag + 1;
+        let idOfPresentSong = itemOfArrayFlag;
         let elemOfTheSong = document.getElementById(idOfPresentSong);
         elemOfTheSong.style.borderColor = "#008bf8";
         elemOfTheSong.style.boxShadow = "0 4px 18px 0 rgba(0, 0, 0, 0.25)";
@@ -205,6 +206,7 @@ function playSong() {
         for (let i = 0; i < songs.canciones.length; i++) {
             if (songs.canciones[i].id === idOfPresentSong) {
                 iframe.src = songs.canciones[i].url;
+                console.log(`El id es: ${idOfPresentSong} | URL: ${songs.canciones[i].url}`);
             }
         }
 
