@@ -1,0 +1,132 @@
+        /*RESET Section*/
+        body {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            min-width: 320px;
+            font-size: 62.5%;
+            font: inherit;
+            vertical-align: baseline;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+        }
+
+        #header {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            background-color: #32334c;
+        }
+
+        #header>p {
+            margin-top: 10px;
+            color: #fff;
+        }
+
+        h1,
+        h2,
+        h3 {
+            text-align: center;
+            margin: 0;
+        }
+
+        h1 {
+            line-height: 50px;
+            color: #eb8410;
+        }
+
+        h2,
+        h3 {
+            color: #fff;
+        }
+
+        h3 {
+            margin: 10px 0;
+            font-size: 1rem;
+        }
+
+        /*App*/
+        .game_square {
+            width: 80px;
+            height: 80px;
+            background-color: #fff;
+            border-radius: 5px;
+            color: #000;
+        }
+
+        #pos_1 {
+            grid-area: pos_1;
+            align-content: center;
+            font-size: 55px;
+        }
+
+        #pos_2 {
+            grid-area: pos_2;
+            align-content: center;
+            font-size: 55px;
+        }
+
+        #pos_3 {
+            grid-area: pos_3;
+            align-content: center;
+            font-size: 55px;
+        }
+
+        #pos_4 {
+            grid-area: pos_4;
+            align-content: center;
+            font-size: 55px;
+        }
+
+        #pos_5 {
+            grid-area: pos_5;
+            align-content: center;
+            font-size: 55px;
+        }
+
+        #pos_6 {
+            grid-area: pos_6;
+            align-content: center;
+            font-size: 55px;
+        }
+
+        #pos_7 {
+            grid-area: pos_7;
+            align-content: center;
+            font-size: 55px;
+        }
+
+        #pos_8 {
+            grid-area: pos_8;
+            align-content: center;
+            font-size: 55px;
+        }
+
+        #pos_9 {
+            grid-area: pos_9;
+            align-content: center;
+            font-size: 55px;
+        }
+
+        #content__game {
+            display: grid;
+            gap: 5px;
+            grid-template-areas:
+                'pos_1 pos_2 pos_3'
+                'pos_4 pos_5 pos_6'
+                'pos_7 pos_8 pos_9'
+            ;
+            justify-content: center;
+        }
+
+        /*-------------------------MEDIA QUERY-------------------------*/
+        @media (min-width: 504px) {
+            #songsList {
+                display: grid;
+                grid-template-columns: auto auto auto;
+                gap: 15px;
+                padding: 0;
+                justify-items: center;
+            }
+
+        }

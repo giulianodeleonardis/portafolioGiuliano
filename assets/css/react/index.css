@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--gray3);
+    text-align: center;
+    font-size: 14px;
+}
+
+#main {
+    margin-top: 80px;
+}
+
+#card__price {
+    width: fit-content;
+    padding: 5px;
+    margin: 0 auto;
+    margin-top: 8px;
+    background-color: #53f953;
+    border: solid #000000 1px;
+    border-radius: 50px;
+}
+
+.card__quantity {
+    width: 70%;
+    margin: 0 auto;
+}
+
+#main, .card__quantity {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+#main__card {
+    width: 28%;
+    border: solid 1px rgb(219, 218, 218);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#card__image img {
+    width: 100%;
+    object-fit: cover;
+}
+
+#card__textContent {
+    padding: 10px;
+}
+
+#card__textContent p {
+    margin-bottom: 10px;
+}
+
+.digitScreen {
+    padding: 0 10px;
+}
+
+.minusButton, .plusButton {
+    width: 25px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+#total {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 5px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.card__totalNumber {
+    font-size: 32px;
+    color: #000;
+}
