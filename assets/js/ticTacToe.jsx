@@ -10,7 +10,7 @@ function Square({ className, value, onSquareClick }) {
   }
   
   //Component that represent the group of nine squares 
-  function Board({ xIsNext, squares, onPlay, restart}) {
+  function Board({ xIsNext, squares, onPlay, onRestart}) {
     //States to chanche the class of each square
     const[isThereWinner0, setIsThereWinner0] = React.useState(false);
     const[isThereWinner1, setIsThereWinner1] = React.useState(false);
@@ -26,7 +26,7 @@ function Square({ className, value, onSquareClick }) {
   
     //If restart is true, changes all the classes to the initial state
     React.useEffect(()=>{
-      if(restart) {
+      if(onRestart) {
         setIsThereWinner0(false);
         setIsThereWinner1(false);
         setIsThereWinner2(false);
@@ -46,7 +46,7 @@ function Square({ className, value, onSquareClick }) {
   
     //Manage click event on each square
     function handleClick(i) {
-      //Return if there is no winner or if the square clicked is filled
+      //Return if there is no winner or if the square clicked is filled     
       if (calculateWinner(squares) || squares[i]) {
         return;
       } 
@@ -64,6 +64,9 @@ function Square({ className, value, onSquareClick }) {
     let status = null;
 
     winner ? (status = 'Ganador: ' + winner[0]) : (status = 'Siguiente jugador: ' + (xIsNext ? 'X' : 'O'));
+
+    //End of the game
+    winner ? null : nextSquares.includes(null) ? null : status = "Empate";
   
     React.useEffect(()=>{
       if (winner) {
@@ -152,6 +155,7 @@ function Square({ className, value, onSquareClick }) {
     const xIsNext = currentMove % 2 === 0;
     const currentSquares = history[currentMove];
     const restartValue = React.useRef(false);
+    const restartColor = React.useRef(false);
   
     function handlePlay(nextSquares) {
       const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
@@ -176,20 +180,21 @@ function Square({ className, value, onSquareClick }) {
       }
     });
   
-    function restart() {
+    function onRestart() {
       jumpTo(0);
       restartValue.current = true;
+      restartColor.current = true;
       setHistory([Array(9).fill(null)]);
     }
   
     return (
       <div className="game">
         <div className="game-board">
-          <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} restart={restartValue.current} />
+          <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} onRestart={restartValue.current} onHistoryClic = {restartColor.current} />
         </div>      
         <div className="game-info">
         <div><p>Estás en el movimiento: <span>{currentMove}</span></p></div>
-        <button id="game-info__restart" onClick={()=>restart()}>INICIO</button>
+        <button id="game-info__restart" onClick={()=>onRestart()}>INICIO</button>
           <ul>{moves}</ul>
         </div>
       </div>
