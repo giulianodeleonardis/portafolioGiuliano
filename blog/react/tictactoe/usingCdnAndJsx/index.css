@@ -1,0 +1,145 @@
+.square {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 70px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 70px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 70px;
+}
+
+.squareWinner {
+  background: #1bc567;
+}
+
+.board-row:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.game-info {
+  margin-left: 20px;
+  display: flex;
+  margin-left: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-info p {
+  font-size: 20px;
+}
+
+.game-info span {
+  font-size: 25px;
+  font-weight: bold;
+  padding-left: 5px;
+}
+
+.game-info ul {
+  list-style: none;
+}
+
+/*Restart button*/
+#game-info__restart {
+  appearance: button;
+  background-color: #1899D6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round,sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  margin-bottom: 10px;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 50%;
+}
+
+#game-info__restart:after {
+  background-clip: padding-box;
+  background-color: #1CB0F6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+#game-info__restart:main,
+#game-info__restart:focus {
+  user-select: auto;
+}
+
+#game-info__restart:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+#game-info__restart:disabled {
+  cursor: auto;
+}
+
+#game-info__restart:active {
+  border-width: 4px 0 0;
+  background: none;
+}
+
+/*History move button*/
+.game-info__historyButton {
+  display: flex;
+  margin-bottom: 5px;
+  align-items: center;
+  padding: 6px 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+  border-radius: 6px;
+  border: none;
+
+  background: #6E6D70;
+  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+  color: #DFDEDF;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.game-info__historyButton:focus {
+  box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+  outline: 0;
+}

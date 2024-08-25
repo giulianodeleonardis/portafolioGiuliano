@@ -2,7 +2,7 @@
 <html lang="es" dir="ltr">
 
 <head>
-    <title>Giuliano De Leonardis | Sopa de Letras</title>
+    <title>Giuliano De Leonardis | React</title>
     <!--Meta Tags-->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">    
@@ -18,11 +18,17 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/sections.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/header.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/nav.css" />
-    <link rel="stylesheet" href="/assets/css/ticTacToe/styles.css">
+    <link rel="stylesheet" href="/assets/css/react/index.css">
     <!--Google Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+    <!--React-->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel" data-type="module" src="/assets/js/ticTacToe.jsx"></script> 
+    <link rel="stylesheet" href="/assets/css/ticTacToe/styles.css"> 
 </head>
 
 <body>
@@ -30,7 +36,7 @@
         <img class="circle" src="/assets/img/logos/large.png" alt="logo large" />
         <h1>Giuliano De Leonardis</h1>
         <hr />
-        <h2>Desarrollador Frontend</h2>
+        <h2>Desarrollador Frontend</h2> 
         <video autoplay loop muted>
             <source src="/assets/video/hero.mp4" />
         </video>
@@ -53,46 +59,12 @@
         </ul>
     </nav>
     <main>
-        <section id="content" class="even">
-            <h1>Juego Tic Tac Toe</h1>
-            <div id="content__game">
-                <div id="pos_1" class="game_square">
-                    <span></span>
-                </div>
-                <div id="pos_2" class="game_square">
-                    <span></span>
-                </div>
-                <div id="pos_3" class="game_square">
-                    <span></span>
-                </div>
-                <div id="pos_4" class="game_square">
-                    <span></span>
-                </div>
-                <div id="pos_5" class="game_square">
-                    <span></span>
-                </div>
-                <div id="pos_6" class="game_square">
-                    <span></span>
-                </div>
-                <div id="pos_7" class="game_square">
-                    <span></span>
-                </div>
-                <div id="pos_8" class="game_square">
-                    <span></span>
-                </div>
-                <div id="pos_9" class="game_square">
-                    <span></span>
-                </div>
-            </div>
-            <button>Reset</button>
-        </section>
+        <h1>Libreria <i>React</i></h1>
+        <div id="root"></div>
     </main>
     <footer>
         <small>Developed and designed by Giuliano De Leonardis. ©2024. All rights reserved.</small>
     </footer>
-    <script src="/assets/js/main.js"></script>
-    <script src="/assets/js/fixed.js"></script>
-    <script src="/assets/js/ticTacToe.js"></script>
 </body>
 
 </html>

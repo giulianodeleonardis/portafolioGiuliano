@@ -1,132 +1,146 @@
-        /*RESET Section*/
-        body {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            min-width: 320px;
-            font-size: 62.5%;
-            font: inherit;
-            vertical-align: baseline;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            text-align: center;
-        }
-
-        #header {
-            position: sticky;
-            top: 0;
-            z-index: 1;
-            background-color: #32334c;
-        }
-
-        #header>p {
-            margin-top: 10px;
-            color: #fff;
-        }
-
-        h1,
-        h2,
-        h3 {
-            text-align: center;
-            margin: 0;
-        }
-
-        h1 {
-            line-height: 50px;
-            color: #eb8410;
-        }
-
-        h2,
-        h3 {
-            color: #fff;
-        }
-
-        h3 {
-            margin: 10px 0;
-            font-size: 1rem;
-        }
-
-        /*App*/
-        .game_square {
-            width: 80px;
-            height: 80px;
-            background-color: #fff;
-            border-radius: 5px;
-            color: #000;
-        }
-
-        #pos_1 {
-            grid-area: pos_1;
-            align-content: center;
-            font-size: 55px;
-        }
-
-        #pos_2 {
-            grid-area: pos_2;
-            align-content: center;
-            font-size: 55px;
-        }
-
-        #pos_3 {
-            grid-area: pos_3;
-            align-content: center;
-            font-size: 55px;
-        }
-
-        #pos_4 {
-            grid-area: pos_4;
-            align-content: center;
-            font-size: 55px;
-        }
-
-        #pos_5 {
-            grid-area: pos_5;
-            align-content: center;
-            font-size: 55px;
-        }
-
-        #pos_6 {
-            grid-area: pos_6;
-            align-content: center;
-            font-size: 55px;
-        }
-
-        #pos_7 {
-            grid-area: pos_7;
-            align-content: center;
-            font-size: 55px;
-        }
-
-        #pos_8 {
-            grid-area: pos_8;
-            align-content: center;
-            font-size: 55px;
-        }
-
-        #pos_9 {
-            grid-area: pos_9;
-            align-content: center;
-            font-size: 55px;
-        }
-
-        #content__game {
-            display: grid;
-            gap: 5px;
-            grid-template-areas:
-                'pos_1 pos_2 pos_3'
-                'pos_4 pos_5 pos_6'
-                'pos_7 pos_8 pos_9'
-            ;
-            justify-content: center;
-        }
-
-        /*-------------------------MEDIA QUERY-------------------------*/
-        @media (min-width: 504px) {
-            #songsList {
-                display: grid;
-                grid-template-columns: auto auto auto;
-                gap: 15px;
-                padding: 0;
-                justify-items: center;
-            }
-
-        }
+.square {
+    background: #fff;
+    border: 1px solid #999;
+    float: left;
+    font-size: 70px;
+    font-weight: bold;
+    line-height: 34px;
+    height: 70px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 70px;
+  }
+  
+  .squareWinner {
+    background: #1bc567;
+  }
+  
+  .board-row:after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+  
+  .status {
+    margin-bottom: 10px;
+  }
+  .game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .game-info {
+    margin-left: 20px;
+    display: flex;
+    margin-left: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .game-info p {
+    font-size: 20px;
+  }
+  
+  .game-info span {
+    font-size: 25px;
+    font-weight: bold;
+    padding-left: 5px;
+  }
+  
+  .game-info ul {
+    list-style: none;
+  }
+  
+  /*Restart button*/
+  #game-info__restart {
+    appearance: button;
+    background-color: #1899D6;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: din-round,sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    line-height: 20px;
+    margin-bottom: 10px;
+    outline: none;
+    overflow: visible;
+    padding: 13px 16px;
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transform: translateZ(0);
+    transition: filter .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 50%;
+  }
+  
+  #game-info__restart:after {
+    background-clip: padding-box;
+    background-color: #1CB0F6;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    bottom: -4px;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+  
+  #game-info__restart:main,
+  #game-info__restart:focus {
+    user-select: auto;
+  }
+  
+  #game-info__restart:hover:not(:disabled) {
+    filter: brightness(1.1);
+    -webkit-filter: brightness(1.1);
+  }
+  
+  #game-info__restart:disabled {
+    cursor: auto;
+  }
+  
+  #game-info__restart:active {
+    border-width: 4px 0 0;
+    background: none;
+  }
+  
+  /*History move button*/
+  .game-info__historyButton {
+    display: flex;
+    margin-bottom: 5px;
+    align-items: center;
+    padding: 6px 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+    border-radius: 6px;
+    border: none;
+  
+    background: #6E6D70;
+    box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+    color: #DFDEDF;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .game-info__historyButton:focus {
+    box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+    outline: 0;
+  }
+  
