@@ -21,7 +21,7 @@ function buttonGeratorWords() {
 
 function generateWordSearch() {
     let listWordsCheckbox = document.querySelectorAll(".word-list-item__label");
-    let partOfNameId = 'check';
+    let partOfNameId = 'uncheck';
     let eachIdOfCheckBox;
     arrayOfWordsSelected = [];
     for (let i = 0; i < listWordsCheckbox.length; i++) {
@@ -203,7 +203,7 @@ function displayWordListToSelect(words, container) {
                 inputTag.setAttribute("name", nameForEachCheck);
                 inputTag.setAttribute("id", nameForEachCheck);
                 inputTag.setAttribute("class", "inputTypeCheck");
-                inputTag.setAttribute("checked", true);
+                inputTag.setAttribute("checked", false);
                 labelTag.appendChild(inputTag);
                 labelTag.appendChild(labelText);
                 divItem.appendChild(labelTag);
