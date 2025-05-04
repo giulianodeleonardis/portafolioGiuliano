@@ -203,7 +203,7 @@ function displayWordListToSelect(words, container) {
                 inputTag.setAttribute("name", nameForEachCheck);
                 inputTag.setAttribute("id", nameForEachCheck);
                 inputTag.setAttribute("class", "inputTypeCheck");
-                //inputTag.setAttribute("checked", true);
+                inputTag.setAttribute("checked", false);
                 labelTag.appendChild(inputTag);
                 labelTag.appendChild(labelText);
                 divItem.appendChild(labelTag);
