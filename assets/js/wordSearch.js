@@ -21,6 +21,7 @@ function buttonGeratorWords() {
 
 function generateWordSearch() {
     let listWordsCheckbox = document.querySelectorAll(".word-list-item__label");
+    console.log(listWordsCheckbox);
     let partOfNameId = 'uncheck';
     let eachIdOfCheckBox;
     arrayOfWordsSelected = [];
@@ -28,7 +29,8 @@ function generateWordSearch() {
         let idNumber = i;
         eachIdOfCheckBox = '';
         eachIdOfCheckBox = document.getElementById(partOfNameId + idNumber);
-        if (eachIdOfCheckBox.checked) {
+        if (listWordsCheckbox[i].control.check === true) {
+            console.log('hola');
             arrayOfWordsSelected.push(listWordsCheckbox[i].innerText);
         }        
     }
@@ -203,7 +205,7 @@ function displayWordListToSelect(words, container) {
                 inputTag.setAttribute("name", nameForEachCheck);
                 inputTag.setAttribute("id", nameForEachCheck);
                 inputTag.setAttribute("class", "inputTypeCheck");
-                inputTag.setAttribute("checked", true);
+                inputTag.setAttribute("check", false);
                 labelTag.appendChild(inputTag);
                 labelTag.appendChild(labelText);
                 divItem.appendChild(labelTag);
@@ -266,7 +268,18 @@ function resetWordSearch() {
 
 // Display de quantity of words selected
 function updateCount() {
+    console.log(this.check);
+    if (!this.check) {
+        this.check = true;  // Marcar como checked
+    }
+    else if (this.check) {
+        this.check = false;  // Marcar como unchecked
+    }
+
+
     const countDisplay = document.getElementById('qtyWordListToSelect');
     const checkedCount = document.querySelectorAll('.inputTypeCheck:checked').length;
     countDisplay.textContent = checkedCount;
 }
+
+
