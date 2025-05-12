@@ -7,7 +7,9 @@ table {
   background-color: var(--white);
   color: var(--primary);
 }
-td, .answer td {
+
+td,
+.answer td {
   border: 1px solid #000;
   min-width: 40px;
   width: 40px;
@@ -19,6 +21,7 @@ td, .answer td {
   font-size: 30px;
   border-radius: 5px;
 }
+
 .answer td {
   background-color: #f0f0f0;
 }
@@ -27,6 +30,7 @@ td, .answer td {
   display: flex;
   font-size: 2.2rem;
 }
+
 #wordList li {
   list-style-type: none;
   margin-right: 20px;
@@ -43,18 +47,21 @@ td, .answer td {
   font-size: 2.2rem;
 }
 
-#buttonGeratorCrossWords, #buttonResetCrossWords, #buttonGeratorWords {
+#buttonGeratorCrossWords,
+#buttonResetCrossWords,
+#buttonGeratorWords {
   margin-top: 10px;
   padding: 5px;
   font-size: 1.2rem;
   border-radius: 5px;
   font-weight: bold;
-  transition: filter 0.3s ease; 
+  transition: filter 0.3s ease;
 }
 
-#buttonGeratorCrossWords:hover, #buttonResetCrossWords:hover {
+#buttonGeratorCrossWords:hover,
+#buttonResetCrossWords:hover {
   cursor: pointer;
-  filter: drop-shadow(5px 5px 10px rgba(36, 36, 36, 0.5)); 
+  filter: drop-shadow(5px 5px 10px rgba(36, 36, 36, 0.5));
 }
 
 #wordListToSelect {
@@ -89,10 +96,10 @@ td, .answer td {
 
 .word-list-item {
   background-color: white;
-    color: black;
-    border: solid 2px;
-    border-radius: 5px;
-    padding: 10px;
+  color: black;
+  border: solid 2px;
+  border-radius: 5px;
+  padding: 10px;
   text-align: left;
 }
 
@@ -115,3 +122,20 @@ td, .answer td {
   list-style: none;
 }
 
+#wrapper-table-1, #wrapper-table-2{
+  position: relative;
+}
+
+.copy-img-btn {
+  position: absolute;
+  top: -10px;
+  right: 0px;
+  cursor: pointer;
+  background: white;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  padding: 2px 5px;
+  font-size: 14px;
+  user-select: none;
+  z-index: 10;
+}

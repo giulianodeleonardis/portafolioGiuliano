@@ -21,7 +21,6 @@ function buttonGeratorWords() {
 
 function generateWordSearch() {
     let listWordsCheckbox = document.querySelectorAll(".word-list-item__label");
-    console.log(listWordsCheckbox);
     let partOfNameId = 'uncheck';
     let eachIdOfCheckBox;
     arrayOfWordsSelected = [];
@@ -30,9 +29,8 @@ function generateWordSearch() {
         eachIdOfCheckBox = '';
         eachIdOfCheckBox = document.getElementById(partOfNameId + idNumber);
         if (listWordsCheckbox[i].control.check === true) {
-            console.log('hola');
             arrayOfWordsSelected.push(listWordsCheckbox[i].innerText);
-        }        
+        }
     }
     const size = parseInt(document.getElementById('size').value);
     const words = arrayOfWordsSelected.map(word => word.trim().toUpperCase());
@@ -66,7 +64,7 @@ function generateWordSearch() {
     displayTable(answerTable, size, 'wordSearchContainer', true);
     //displayWordListToSelect(arrayWordsUnique, 'wordListToSelect');
     //displayWordList(arrayWordsUnique, 'wordListContainer');
-    
+
     //List of words selected
     const wordsSelectedContainer = document.getElementById("wordsSelected");
     wordsSelectedContainer.style.width = "40%";
@@ -83,7 +81,7 @@ function generateWordSearch() {
         for (let j = 0; j < columnSize; j++) {
             const wordIndex = i * columnSize + j;
             if (wordIndex < qtyOfWords) {
-                let nameForEachCheck = "check" + (wordIndex); 
+                let nameForEachCheck = "check" + (wordIndex);
                 const labelTag = document.createElement("label");
                 labelTag.setAttribute("for", nameForEachCheck);
                 labelTag.setAttribute("class", "word-list-item__label");
@@ -96,7 +94,7 @@ function generateWordSearch() {
                 divItem.appendChild(brTag);
             }
         }
-  
+
         wordsSelectedContainer.appendChild(divItem);
     }
 }
@@ -161,9 +159,14 @@ function fillEmptySpaces(table, size) {
     }
 }
 
+let tableCounter = 0;
 function displayTable(table, size, containerId, isAnswer = false) {
+    tableCounter++;
     const container = document.getElementById(containerId);
     const tableElem = document.createElement('table');
+
+    tableElem.id = `table-${tableCounter}`; // ID único
+
     for (let y = 0; y < size; y++) {
         const row = document.createElement('tr');
         for (let x = 0; x < size; x++) {
@@ -176,7 +179,48 @@ function displayTable(table, size, containerId, isAnswer = false) {
         }
         tableElem.appendChild(row);
     }
-    container.appendChild(tableElem);
+    // 🔸 Crear el botón 📸
+    const copyBtn = document.createElement('div');
+    copyBtn.className = 'copy-img-btn';
+    copyBtn.textContent = '📸';
+
+    // Agrupar en un contenedor individual (opcional pero útil)
+    const wrapper = document.createElement('div');
+    wrapper.className = 'table-wrapper'; // para estilo si deseas
+    if (tableElem.id) wrapper.id = `wrapper-${tableElem.id}`; // opcional
+
+    wrapper.appendChild(copyBtn);   // Agrega el botón primero (esquina superior derecha)
+    container.appendChild(wrapper); // Agrega el contenedor al DOM
+    wrapper.appendChild(tableElem); // Luego agrega la tabla al contenedor
+    //container.appendChild(tableElem);
+
+    document.querySelectorAll('.copy-img-btn').forEach(button => {
+        button.addEventListener('click', async () => {
+            const container = button.parentElement;
+
+            // Ocultamos el botón temporalmente para no capturarlo
+            button.style.visibility = 'hidden';
+
+            const canvas = await html2canvas(container);
+            button.style.visibility = 'visible';
+
+            canvas.toBlob(blob => {
+                if (!blob) return;
+
+                // Usamos el portapapeles si está disponible
+                if (navigator.clipboard && navigator.clipboard.write) {
+                    const item = new ClipboardItem({ "image/png": blob });
+                    navigator.clipboard.write([item]).then(() => {
+                        button.textContent = '✅';
+                        setTimeout(() => button.textContent = '📸', 1500);
+                    });
+                } else {
+                    alert("Tu navegador no permite copiar imágenes al portapapeles.");
+                }
+            });
+        });
+    });
+
 }
 
 function displayWordListToSelect(words, container) {
@@ -193,8 +237,8 @@ function displayWordListToSelect(words, container) {
         for (let j = 0; j < columnSize; j++) {
             const wordIndex = i * columnSize + j;
             if (wordIndex < qtyOfWords) {
-                let nameForEachCheck = "check" + (wordIndex); 
-                let idForLabel = "label-check" + (wordIndex); 
+                let nameForEachCheck = "check" + (wordIndex);
+                let idForLabel = "label-check" + (wordIndex);
                 const labelTag = document.createElement("label");
                 labelTag.setAttribute("for", nameForEachCheck);
                 labelTag.setAttribute("class", "word-list-item__label");
@@ -254,8 +298,8 @@ function resetWordSearch() {
     const words = document.getElementById('words');
     const wordSearchContainer = document.getElementById('wordSearchContainer');
     const displayQtyOfWords = document.getElementById("qtyOfWordsToSelect");
-    const listOfWords = document.getElementById("wordListToSelect");    
-    const listOfWordsSelected = document.getElementById("wordsSelected");   
+    const listOfWords = document.getElementById("wordListToSelect");
+    const listOfWordsSelected = document.getElementById("wordsSelected");
     wordListContainer.innerHTML = '';
     inputOfSizeCrossWord.value = '';
     words.value = '';
@@ -268,7 +312,6 @@ function resetWordSearch() {
 
 // Display de quantity of words selected
 function updateCount() {
-    console.log(this.check);
     if (!this.check) {
         this.check = true;  // Marcar como checked
     }
